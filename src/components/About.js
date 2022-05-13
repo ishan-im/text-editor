@@ -1,90 +1,121 @@
-            import React , { useState } from 'react'
+            import React  from 'react'
 
-            export default function About() {
-                //  change button text
-
-                const [btnText, setBtnText] = useState("Enable Dark Mode");
-
-                // enable dark mode 
-                 const [myStyle, setMyStyle] = useState({
-                    color:"black",
-                    backgroundColor:"white"
-                 });
+            export default function About(props) {
                
 
-                 const tooggleMyStyle = () =>{
+                
+                const darkStyle = {
 
-                   if(myStyle.color === "black"){
-                       setMyStyle({
-                         color:"white",
-                         backgroundColor:"#121212",
-                         border:"2px solid white"
-                       });
-
-                       setBtnText("Enable Light Mode");
-                   }else{
-                       setMyStyle({
-                        color:"black",
-                        backgroundColor:"white"
-                       });
-
-                       setBtnText("Enable Dark Mode");
-                   }
-
-                 }
+                    color:"white",
+                    backgroundColor:"#121212",
+                    border:"1px solid white"
+                }
 
 
+                const lightStyle = {
+
+                    color:"black",
+                    backgroundColor:"white"
+
+                }
+                
+                const style = (props.mode === 'dark' ? darkStyle : lightStyle)
+
+                console.log(props.mode);
 
                 return (
-                    <div className="container" style={myStyle}>
+                  <div className="container" style={style}>
+                    <h2 className="my-3 text-center">About Us</h2>
 
-                    <h2 className="my-3">About Us</h2>  
-                        
-                        <div class="accordion" id="accordionExample" style={myStyle}>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Accordion Item #1
-                </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body" style={myStyle}>
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed " style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Accordion Item #2
-                </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body" style={myStyle}>
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Accordion Item #3
-                </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse"  aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body" style={myStyle}>
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-                </div>
-            </div>
-            </div>
-
-            <div className="container ">
-                <button className="btn btn-primary my-3" onClick={tooggleMyStyle} >{btnText}</button>
-
-            </div>
-        
-    
+                    <div
+                      className="accordion"
+                      id="accordionExample"
+                      style={style}
+                    >
+                      <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingOne">
+                          <button
+                            style={style}
+                            className="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                          >
+                            About Text Emotion
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseOne"
+                          className="accordion-collapse collapse show"
+                          aria-labelledby="headingOne"
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div className="accordion-body" style={style}>
+                            Text Emotion is a free app that allows you to
+                            create, edit and print text files on your computer
+                            and web browser.
+                          </div>
+                        </div>
+                      </div>
+                      <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingTwo">
+                          <button
+                            className="accordion-button collapsed "
+                            style={style}
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo"
+                          >
+                            Get Started
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseTwo"
+                          className="accordion-collapse collapse"
+                          aria-labelledby="headingTwo"
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div className="accordion-body" style={style}>
+                            To use this app try write some text on the input
+                            field. Then you can apply several change to it. Use
+                            preview section to preview the text. You can
+                            download the text locally by pressing the print
+                            button.
+                          </div>
+                        </div>
+                      </div>
+                      <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingThree">
+                          <button
+                            className="accordion-button collapsed"
+                            style={style}
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree"
+                            aria-expanded="false"
+                            aria-controls="collapseThree"
+                          >
+                            How it works
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseThree"
+                          className="accordion-collapse collapse"
+                          aria-labelledby="headingThree"
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div className="accordion-body" style={style}>
+                            This is a pure React web app. All the process is
+                            done in the internet locally. This app works in all
+                            operating sysstem.
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                )
+                  </div>
+                );
             }
