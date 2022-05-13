@@ -1,16 +1,19 @@
 
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
+
+import ContactUs from './components/ContactUs';
+
+import {
   
-// } from "react-router-dom";
+  Routes,
+  Route,
+  
+} from "react-router-dom";
 
 function App() {
 
@@ -39,35 +42,50 @@ if(mode ==='dark'){
   document.body.style.backgroundColor='white';
   setModeText('Enable Dark Mode');
   showAlert('Light mode has been enabled','success');
-  document.title="My App-Light mode"
+  
 
 }else{
   setMode('dark');
   document.body.style.backgroundColor='#121212';
   setModeText('Enable Light Mode');
   showAlert('Dark mode has been enabled','success');
-  document.title="My App-Dark mode"
+  
 }
 }
+
+
 
   return (
     <>
-    {/* <Router> */}
-    <Navbar title="My App" aboutUs="About App" mode={mode} modetext={modetext} toggleMode={toggleMode}/>
-    <Alert alert={alert}/>
-    <div className="container my-3">
-        {/* <Switch>
-          <Route exact path="/about">
-          <About />
-          </Route>
-
-          <Route exact path="/"> */}
-          <Textform showAlert={showAlert}  heading='Enter your text here' mode={mode}/> 
-          {/* </Route>
-        </Switch> */}
     
-     </div> 
-     {/* </Router> */}
+    <Navbar title="Text Emotion" aboutUs="About App" mode={mode} modetext={modetext} toggleMode={toggleMode}/>
+    <Alert alert={alert}/>
+
+
+    <div className="container my-3">
+    <Routes>
+
+        <Route
+
+        path='/'
+            element={<Textform showAlert={showAlert} heading='Enter your text here:' mode={mode} />}
+        />
+        
+
+        
+       
+        <Route
+              path='/about'
+              element={<About mode={mode}/>}
+        />
+
+       <Route
+              path='/contactUs'
+              element={<ContactUs mode={mode}/>}
+        />
+         
+      </Routes>
+      </div>
     </>
   );
 }
