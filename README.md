@@ -34,4 +34,4 @@ Your app is ready to be deployed!
 
 ### `Find this React App online`
 
-<a href="https://textemotion.netlify.app/" target="_blank">Find Deployment</a>
+<a href="https://textemotion.netlify.app/" target="#blank">Find Deployment</a>
